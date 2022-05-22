@@ -1,0 +1,30 @@
+<div class="row">
+  <button type="button" class="btn btn-success" routerLink="">ADD ANSWER</button>
+  </div>
+  <div>
+
+    <table class="table">
+        <thead>
+            <tr>
+              <th>Update</th>
+              <th>Delete</th>
+                <th >Id</th>
+                <th>Content</th>
+                <th>Is correct</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let answer of answers;let i = index">
+            <td><button type="button" class="btn btn-sm btn-primary ml-15" routerLink="">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" routerLink="">Delete</button></td>
+              <td>{{ answer.id}}</td>
+              <td>{{ answer.content }}</td>
+              <td>{{ answer.correct }}</td>
+
+          </tr>
+
+      </tbody>
+
+    </table>
+  </div>
