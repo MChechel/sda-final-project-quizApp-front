@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AnswerComponent } from './answer/answer.component';
 import { NavComponent } from './nav/nav.component';
 import { AnswerFormComponent } from './answer-form/answer-form.component';
+import { QuestionFormComponent } from './question-form/question-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AnswerFormComponent } from './answer-form/answer-form.component';
     QuestionComponent,
     AnswerComponent,
     NavComponent,
-    AnswerFormComponent
+    AnswerFormComponent,
+    QuestionFormComponent
   ],
   imports: [
     BrowserModule,

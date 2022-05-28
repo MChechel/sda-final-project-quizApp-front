@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AnswerService } from '../answer/answer-service';
 import { theAnswer } from '../answer/answer.model';
 
@@ -18,7 +18,7 @@ export class AnswerFormComponent implements OnInit {
 
   });
 isEditing:boolean = false;
-
+qId:number;
 ANSWER_FORM= {
   id:null,
   content:null,
@@ -30,15 +30,15 @@ ngOnInit(): void {
   console.log('the form is initiated!')
   //this.createForm;
   this.route.params.subscribe(params =>{
+    this.qId = params['questionId'];
      if(params['id']){
       this.isEditing = true;
-             this.service.getAnswer(params['id']).subscribe((a:theAnswer)=>{
+             this.service.getAnswer(this.qId,params['id']).subscribe((a:theAnswer)=>{
                this.form.setValue({
                  id:a.id,
                  content:a.content,
                  correct:a.correct})
              //  this.form.setValue({a })
-
               }
      )}
             })
@@ -53,16 +53,18 @@ ngOnInit(): void {
 }
 
 onSubmit():void{
+  console.log(this.qId);
   if(this.isEditing){
-    this.service.putAnswer(this.form.value).subscribe(()=>{
+    this.service.putAnswer(this.qId,this.form.value).subscribe(()=>{
       console.log(this.form.value);
       this.form.reset
     })
   }else{
-    this.service.postAnswer(this.form.value).subscribe(()=>{
-      console.log(this.form.value);
-      this.form.reset
-    })
+      this.service.postAnswer(this.qId,this.form.value).subscribe(()=>{
+        console.log(this.form.value);
+        this.form.reset
+      })
+
   }
 
   }

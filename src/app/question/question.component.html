@@ -1,1 +1,38 @@
-<p>question works!</p>
+<div class="row">
+  <button type="button" class="btn btn-success" routerLink="/question-form">ADD QUESTION</button>
+  </div>
+  <div>
+    <table class="table table-hover table-striped text-center">
+        <thead>
+            <tr>
+                <th >#</th>
+                <th style="width: 50%">Content</th>
+                <th>Points</th>
+                <th >ACTIONS</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let q of questions;let i = index">
+              <td>{{q.id}}</td>
+              <td>{{q.content }}</td>
+              <td>{{q.points }}</td>
+              <td>
+                <div class="btn-group d-flex " role="group">
+                  <button type="button" class="btn btn-success " [routerLink]="['/question-form',q.id]">Edit</button>
+                  <button type="button" class="btn btn-danger " (click)="deleteQeustion(q.id)">Delete</button>
+                  <button type="button" class="btn btn-warning " [routerLink]="['../',q.id,'answers']">->ANSWERS</button>
+                </div>
+              </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+      <div class="row">
+
+        <!--button type="button" class="btn btn-warning" (click)="deleteQuestions()">DELETE ALL QUESTIONS</button-->
+
+        </div>
+  </div>

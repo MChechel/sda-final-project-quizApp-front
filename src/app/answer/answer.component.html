@@ -1,26 +1,29 @@
 <div class="row">
-  <button type="button" class="btn btn-success" routerLink="/answers">ADD ANSWER</button>
+  <button type="button" class="btn btn-success" routerLink="../answer-form">ADD ANSWER</button>
   </div>
   <div>
 
-    <table class="table">
+    <table class="table table-hover table-striped text-center">
         <thead>
             <tr>
-              <th>Update</th>
-              <th>Delete</th>
-                <th >Id</th>
-                <th>Content</th>
-                <th>Is correct</th>
-
+                <th>#</th>
+                <th style="width: 60%">Content</th>
+                <th>Correct</th>
+                <th style="width: 10%">ACTIONS</th>
             </tr>
         </thead>
         <tbody>
           <tr *ngFor="let answer of answers;let i = index">
-            <td><button type="button" class="btn btn-sm btn-primary ml-15" [routerLink]="['/answer', answer.id]">Edit</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deleteAnswer(answer.id)">Delete</button></td>
+
               <td>{{ answer.id}}</td>
               <td>{{ answer.content }}</td>
               <td>{{ answer.correct }}</td>
+              <td>
+                <div class="btn-group d-flex " role="group">
+                  <button type="button" class="btn btn-success " [routerLink]="['../answer-form', answer.id]">Edit</button>
+                  <button type="button" class="btn btn-danger " (click)="deleteAnswer(this.qId,answer.id)">Delete</button>
+                </div>
+              </td>
 
           </tr>
 
@@ -29,6 +32,6 @@
       </table>
       <div class="row">
 
-        <button type="button" class="btn btn-warning" (click)="deleteAnswers()">DELETE ALL ANSWERS</button>
+        <button type="button" class="btn btn-warning" (click)="deleteAnswers(this.qId)">DELETE ALL ANSWERS</button>
         </div>
   </div>

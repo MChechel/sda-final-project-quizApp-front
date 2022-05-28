@@ -33,14 +33,8 @@
 
 
       <div class="form-group">
-        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" (click)="onSubmit()" routerLink="/answer">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" (click)="onSubmit()" [routerLink]="['//',this.qId,'answers']">Submit</button>
       </div>
     </form>
-</div>
-<div class="container">
-  <pre>{{form.value|json}}</pre>
-<div class="container">
-  </div>
-
 </div>
 
