@@ -1,5 +1,5 @@
 <div class="row">
-  <button type="button" class="btn btn-success" routerLink="">ADD ANSWER</button>
+  <button type="button" class="btn btn-success" routerLink="/answers">ADD ANSWER</button>
   </div>
   <div>
 
@@ -16,15 +16,19 @@
         </thead>
         <tbody>
           <tr *ngFor="let answer of answers;let i = index">
-            <td><button type="button" class="btn btn-sm btn-primary ml-15" routerLink="">Edit</button></td>
-            <td><button type="button" class="btn btn-danger" routerLink="">Delete</button></td>
+            <td><button type="button" class="btn btn-sm btn-primary ml-15" [routerLink]="['/answer', answer.id]">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteAnswer(answer.id)">Delete</button></td>
               <td>{{ answer.id}}</td>
               <td>{{ answer.content }}</td>
               <td>{{ answer.correct }}</td>
 
           </tr>
 
-      </tbody>
+        </tbody>
 
-    </table>
+      </table>
+      <div class="row">
+
+        <button type="button" class="btn btn-warning" (click)="deleteAnswers()">DELETE ALL ANSWERS</button>
+        </div>
   </div>

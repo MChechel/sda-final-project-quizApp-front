@@ -7,13 +7,15 @@ import { QuestionComponent } from './question/question.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AnswerComponent } from './answer/answer.component';
 import { NavComponent } from './nav/nav.component';
+import { AnswerFormComponent } from './answer-form/answer-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
     AnswerComponent,
-    NavComponent
+    NavComponent,
+    AnswerFormComponent
   ],
   imports: [
     BrowserModule,

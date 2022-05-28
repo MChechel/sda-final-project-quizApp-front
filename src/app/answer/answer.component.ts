@@ -1,6 +1,6 @@
 import { HttpSentEvent } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { StateServiceService } from '../state-service.service';
+import { AnswerService } from './answer-service';
 import { theAnswer } from './answer.model';
 
 @Component({
@@ -10,21 +10,42 @@ import { theAnswer } from './answer.model';
 })
 export class AnswerComponent implements OnInit {
 
-answers:theAnswer[] = [];
+answers:any[] = [];
 
-  constructor(private httpStateService:StateServiceService) { }
+  constructor(private httpService:AnswerService) { }
 
 
   ngOnInit(): void {
   this.getAnswers();
+
+
   }
 
 getAnswers():void{
-  this.httpStateService.getAnswers().subscribe((a:any[]) =>{
+  this.httpService.getAnswers().subscribe((a:any[]) =>{
     this.answers = a;
   });
-  console.log(this.answers);
 }
+
+
+
+deleteAnswer(id:number):void{
+  this.httpService.deleteAnswer(id).subscribe(()=>{
+    console.log(`Item # ${id} is deleted!`);
+    this.getAnswers();
+  });
+
+
+
+}
+
+deleteAnswers():void{
+  this.httpService.deleteAnswers().subscribe(()=>{
+    console.log(`All answers were deleted!!`);
+    this.getAnswers();
+  });
+}
+
 
 
 }
