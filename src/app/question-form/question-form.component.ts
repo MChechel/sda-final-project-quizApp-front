@@ -29,7 +29,7 @@ export class QuestionFormComponent implements OnInit {
   ngOnInit(): void {
 
     console.log('the form is initiated!')
-    //this.createForm;
+    //this.createForm;1
     this.route.params.subscribe(params =>{
        if(params['id']){
         this.isEditing = true;
