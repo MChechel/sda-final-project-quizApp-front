@@ -1,0 +1,78 @@
+<div class="row text-center">
+<h1 >Our most popular surveys!</h1>
+</div>
+<mat-grid-list cols="6" rowHeight="100px">
+  <mat-grid-tile
+      *ngFor="let survey of surveys"
+      [colspan]="2"
+      [rowspan]="2"
+      [style.background]="'lightblue'"
+      >
+      <div class="row text-center">
+        <div class="h2" >{{survey.title}}</div>
+        <div class="h4">{{survey.description}}</div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+
+  <!--
+
+    <div>survey.title</div>
+  <div class="row">
+  <button type="button" class="btn btn-success" routerLink="../survey-form">Make Survey</button>
+</div>
+<div>
+  <table class="table table-hover table-striped text-center">
+    <thead>
+    <tr>
+      <th >#</th>
+      <th >Title</th>
+      <th>Description</th>
+      <th >
+        <thead>
+          <tr>
+              <th >#</th>
+              <th >Content</th>
+              <th>Points</th>
+              <th >ACTIONS</th>
+
+          </tr>
+      </thead>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let s of surveys;let i = index">
+      <td>{{s.id}}</td>
+      <td>{{s.title }}</td>
+      <td>
+        <tr *ngFor="let q of questions;let i = index">
+          <td>{{q.id}}</td>
+          <td>{{q.content }}</td>
+          <td>{{q.points }}</td>
+          <td>
+            <div class="btn-group d-flex " role="group">
+            </div>
+          </td>
+      </tr>
+      </td>
+      <td>
+        <div class="btn-group d-flex " role="group">
+        </div>
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+  <div class="row">
+
+    <button type="button" class="btn btn-warning" (click)="deleteQuestions()">DELETE ALL QUESTIONS</button>
+
+  </div>
+</div>
+-->

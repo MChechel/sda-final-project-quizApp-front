@@ -12,7 +12,14 @@ import { QuestionFormComponent } from './question-form/question-form.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RequestInterceptor } from './request.interceptor';
-
+import { SurveyComponent } from './survey/survey.component';
+import { SurveyFormComponent } from './survey-form/survey-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
+import { TakingSurveyFormComponent } from './taking-survey-form/taking-survey-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +29,23 @@ import { RequestInterceptor } from './request.interceptor';
     AnswerFormComponent,
     QuestionFormComponent,
     UserLoginComponent,
-    UserFormComponent
+    UserFormComponent,
+    SurveyComponent,
+    SurveyFormComponent,
+    HomeComponent,
+    UserNavComponent,
+    TakingSurveyFormComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatGridListModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS, useClass:RequestInterceptor, multi:true}],
   bootstrap: [AppComponent]

@@ -1,0 +1,40 @@
+<h1>{{ title }}</h1>
+<div class="row">
+  <button type="button" class="btn btn-success" routerLink="../survey-form">Make Survey</button>
+</div>
+
+<div>
+  <table class="table table-hover table-striped text-center">
+    <thead>
+    <tr>
+      <th >#</th>
+      <th style="width: 50%">Title</th>
+      <th>Description</th>
+      <th >ACTIONS</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let s of surveys;let i = index">
+      <td>{{s.id}}</td>
+      <td>{{s.title }}</td>
+      <td>{{s.description }}</td>
+      <td>
+        <div class="btn-group d-flex " role="group">
+          <button type="button" class="btn btn-success " [routerLink]="['/survey-form',s.id]">Edit</button>
+          <button type="button" class="btn btn-danger " (click)="deleteSurvey(s.id)">Delete</button>
+          <button type="button" class="btn btn-warning " [queryParams]="{surveyId:s.id}" [routerLink]="['../questionsTest']" >Questions</button>
+        </div>
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+  <div class="row">
+
+    <!--button type="button" class="btn btn-warning" (click)="deleteQuestions()">DELETE ALL QUESTIONS</button-->
+
+  </div>
+</div>

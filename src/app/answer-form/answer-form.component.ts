@@ -15,8 +15,8 @@ export class AnswerFormComponent implements OnInit {
     id: new FormControl('100'),
     content: new FormControl('Please, delete this text and insert the answer option you want to add. And initially the answer will be chosen incorrect option'),
     correct: new FormControl(false)
-
   });
+
 isEditing:boolean = false;
 qId:number;
 ANSWER_FORM= {

@@ -6,9 +6,9 @@
     <table class="table table-hover table-striped text-center">
         <thead>
             <tr>
-                <th>#</th>
-                <th style="width: 60%">Content</th>
-                <th>Correct</th>
+                <th style="width: 5%">#</th>
+                <th>Content</th>
+                <th style="width: 5%">Correct</th>
                 <th style="width: 10%">ACTIONS</th>
             </tr>
         </thead>
@@ -17,21 +17,32 @@
 
               <td>{{ answer.id}}</td>
               <td>{{ answer.content }}</td>
-              <td>{{ answer.correct }}</td>
+              <td>
+                <div *ngIf="answer.correct"><fa-icon [icon]="faCheck"></fa-icon></div>
+                <div *ngIf="!answer.correct"><fa-icon [icon]="faXmark"></fa-icon></div>
+             <!--
+
+               {{ `answer.correct ? `<fa-icon [icon]="faCoffee"></fa-icon>` : 'no' `}}
+
+             -->
+            </td>
               <td>
                 <div class="btn-group d-flex " role="group">
-                  <button type="button" class="btn btn-success " [routerLink]="['../answer-form', answer.id]">Edit</button>
-                  <button type="button" class="btn btn-danger " (click)="deleteAnswer(this.qId,answer.id)">Delete</button>
+                  <button type="button" class="btn btn-success " [routerLink]="['../answer-form', answer.id]"><fa-icon [icon]="faPenToSquare"></fa-icon></button>
+                  <button type="button" class="btn btn-danger " (click)="deleteAnswer(this.qId,answer.id)"><fa-icon [icon]="faTrashCan"></fa-icon></button>
                 </div>
               </td>
 
-          </tr>
+            </tr>
 
-        </tbody>
+          </tbody>
 
-      </table>
-      <div class="row">
 
+        </table>
+        <div class="row">
         <button type="button" class="btn btn-warning" (click)="deleteAnswers(this.qId)">DELETE ALL ANSWERS</button>
-        </div>
+        <button type="button" class="btn btn-primary mt-2" [disabled]="answerSetIsNotComplite" [routerLink]="['../../surveys']">
+          <fa-icon [icon]="faBackwardStep"></fa-icon>--Return to surveys </button>
+
+      </div>
   </div>

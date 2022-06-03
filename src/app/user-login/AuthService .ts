@@ -43,9 +43,8 @@ export class AuthService {
 
   logout(){
     this.sessionId=null;
-    sessionStorage.setItem(
-      'token',this.sessionId
-    );
+    sessionStorage.removeItem(
+      'token');
     this.router.navigate(['']);
   }
 

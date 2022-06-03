@@ -8,9 +8,22 @@ import { QuestionFormComponent } from './question-form/question-form.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { AuthentificationGuard } from './authentification.guard';
+import { SurveyComponent } from './survey/survey.component';
+import { SurveyFormComponent } from './survey-form/survey-form.component';
+import { HomeComponent } from './home/home.component';
+import { TakingSurveyFormComponent } from './taking-survey-form/taking-survey-form.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'',pathMatch:'full'},
+  {path:'login',component:UserLoginComponent},
+  {path:'newUser',component:UserFormComponent},
+  {path: 'surveys', component: SurveyComponent},
+  {path: 'survey-form', component: SurveyFormComponent},
+  {path: 'survey-form/:id', component: SurveyFormComponent},
+  {path: 'questionsTest', component: QuestionComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'takeSurvey', component: TakingSurveyFormComponent},
+
   /**
    *
    */
@@ -21,9 +34,7 @@ const routes: Routes = [
     {path:'questions',component:QuestionComponent},
     {path:':questionId/answers',  component:AnswerComponent},
     {path:':questionId/answer-form',component:AnswerFormComponent},
-    {path:':questionId/answer-form/:id',component:AnswerFormComponent},
-    {path:'login',component:UserLoginComponent},
-    {path:'newUser',component:UserFormComponent},
+    {path:':questionId/answer-form/:id',component:AnswerFormComponent}
   ]}
 
 

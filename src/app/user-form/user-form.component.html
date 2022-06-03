@@ -25,6 +25,9 @@
                 <input type="password" id="typePasswordConfirm" class="form-control form-control-lg" formControlName="passwordConfirm"/>
                 <label class="form-label" for="typePasswordConfirm">Confirm password</label>
             </div>
+            <div *ngIf="form.errors?.['passwordsAreaSame']" class="cross-validation-error-message alert alert-danger">
+              You MUST confirm your password!
+          </div>
             <div class="form-floating mb-3 text-secondary">
               <input type="text" id="FirstName" class="form-control form-control-lg" formControlName="firstName"/>
               <label class="form-label" for="FirstName">First name</label>
@@ -34,7 +37,8 @@
             <label class="form-label" for="lastName">Last name</label>
         </div>
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="onSubmit()" routerLink="..">Login</button>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="onSubmit()"  [disabled]="!form.valid">Create account</button>
+              <!-- routerLink=".."-->
             </form>
 
             </div>

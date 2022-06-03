@@ -1,0 +1,14 @@
+<!--
+
+  class="navbar navbar-light" style="background-color: #e3f2fd;"
+
+  <nav class="nav nav-pills flex-column flex-sm-row">
+  -->
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="flex-sm-row nav-link" routerLink="/surveys" >  <fa-icon [icon]="faUserLarge" class=".width=500px"></fa-icon> ACCOUNT
+    </a>
+  <a class="flex-sm-row nav-link" routerLink="/takeSurvey" >My SURVEYS</a>
+  <a class="flex-sm-row nav-link" routerLink="/surveys" >Update account info</a>
+  <a class="flex-sm-row nav-link" (click)="logout()" href="#">LOGOUT</a>
+</nav>
+

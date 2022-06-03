@@ -1,0 +1,31 @@
+<div class="container">
+  <form [formGroup]="surveyForm">
+    <div class="col-1">
+      <h5 class="">ID:</h5>
+    </div>
+    <div class="col-1">
+      <input type="text" id="content" readonly class="form-control-plaintext bg-light " formControlName="id">
+    </div>
+    <div class="mb-3">
+      <label>
+        Title:
+        <input formControlName="title" class="form-control" placeholder="input title here">
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        Description:
+        <textarea formControlName="description" rows="3" class="form-control"
+                  placeholder="input description here"></textarea>
+      </label>
+    </div>
+
+    <button type="button" id="add-survey-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+    <button class="btn btn-primary btn-lg" type="submit" [disabled]="surveyForm.invalid" (click)="onSubmit()"
+            routerLink="/surveys">Add
+      questions!
+    </button>
+  </form>
+</div>
+

@@ -1,5 +1,5 @@
 <div class="row">
-  <button type="button" class="btn btn-success" routerLink="/question-form">ADD QUESTION</button>
+  <button type="button" class="btn btn-success" [queryParams]="{surveyId:currentSurveyId}" routerLink="/question-form">ADD QUESTION</button>
   </div>
   <div>
     <table class="table table-hover table-striped text-center">
@@ -19,7 +19,7 @@
               <td>{{q.points }}</td>
               <td>
                 <div class="btn-group d-flex " role="group">
-                  <button type="button" class="btn btn-success " [routerLink]="['/question-form',q.id]">Edit</button>
+                  <button type="button" class="btn btn-success " [queryParams]="{surveyId:currentSurveyId}" [routerLink]="['/question-form',q.id]">Edit</button>
                   <button type="button" class="btn btn-danger " (click)="deleteQeustion(q.id)">Delete</button>
                   <button type="button" class="btn btn-warning " [routerLink]="['../',q.id,'answers']">->ANSWERS</button>
                 </div>

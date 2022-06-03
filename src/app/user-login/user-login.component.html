@@ -1,16 +1,33 @@
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
-    <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
-    <!-- Tabs Titles -->
-    <h3>Login</h3>
-
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="username" class="fadeIn second" [(ngModel)]="username" name="username" placeholder="username">
-      <input type="password" id="password" class="fadeIn third" [(ngModel)]="password" name="password" placeholder="password">
-      <input type="submit" (click)='login()' class="fadeIn fourth" value="Log In">
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark bg-gradien text-white" style="border-radius: 3rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h2 class="fw-bold mb-2 text-uppercase">CREATE an accotun</h2>
+              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+    <form class="form-group">
+      <div class="form-floating mb-3 text-secondary">
+        <input type="text" id="username"  class="form-control form-control-lg" [(ngModel)]="username" name="username" placeholder="username">
+        <label class="form-label" for="username">LOGIN/USERMNAME</label>
+      </div>
+      <div class="form-floating mb-3 text-secondary">
+        <input type="password" id="password"  class="form-control form-control-lg" [(ngModel)]="password" name="password" placeholder="password">
+        <label class="form-label" for="username">PASSWORD</label>
+      </div>
+      <input class="btn btn-outline-light btn-lg px-5" type="submit" (click)='login()'  value="Log In">
     </form>
 
   </div>
+
+  <div>
+    <p class="mb-0">Do not have an account? <a href="newUser" class="text-white-50 fw-bold">REGISTER</a>
+    </p>
+  </div>
+  </div>
 </div>
+</div>
+</div>
+</div>
+</section>

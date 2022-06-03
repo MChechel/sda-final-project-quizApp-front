@@ -2,16 +2,6 @@
   <form [formGroup]="form"  class="form-group">
      <h2 class="form-signin-heading">Current question:</h2>
       <div id="data">
-        <div class=" form-group container">
-          <div class="row">
-            <div class="col-1">
-              <h5 class="">ID:</h5>
-            </div>
-            <div class="col-1">
-              <input type="text" id="content" readonly class="form-control-plaintext bg-light " formControlName="id">
-            </div>
-          </div>
-        </div>
         <div class="form-group">
           <label for="questionContent">Question content:</label>
            <textarea  id="questionContent" class="form-control bg-light" formControlName="content" rows = "5">
@@ -23,11 +13,9 @@
           <input  id="points" class="form-control bg-light" formControlName="points">
         </div>
       </div>
-
-
       <!--button class="btn btn-lg btn-primary btn-block mt-2" type="submit" (click)="onSubmit()" routerLink="/answer">Submit + absolute link</button-->
       <div class="form-group">
-        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" (click)="onSubmit()" routerLink="/questions">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" (click)="onSubmit()" [queryParams]="{surveyId:currentSurveyId}" routerLink="/questionsTest">Submit</button>
       </div>
     </form>
 </div>
