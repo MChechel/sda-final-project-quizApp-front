@@ -1,8 +1,9 @@
 
 <nav class="nav nav-pills flex-column flex-sm-row">
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="home">HOME</a>
-  <a class="flex-sm-fill text-sm-center nav-link" routerLink="/surveys" >SURVEYS</a>
-  <a class="flex-sm-fill text-sm-center nav-link" routerLink="/login" >LOGIN</a>
-  <a class="flex-sm-fill text-sm-center nav-link" routerLink="/newUser" >NEW ACCOUNT</a>
-  <a class="flex-sm-fill text-sm-center nav-link" (click)="logout()" href="#">LOGOUT</a>
+  <a class="flex-sm-fill text-sm-center nav-link" routerLink="/surveys" *ngIf="!isLoggedIn" >MY SURVEYS</a>
+  <a class="flex-sm-fill text-sm-center nav-link" routerLink="/login" *ngIf="isLoggedIn">
+    <fa-icon [icon]="faArrowRightToBracket" class=".width=500px"></fa-icon>
+    LOGIN
+  </a>
 </nav>

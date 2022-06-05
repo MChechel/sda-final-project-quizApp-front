@@ -20,12 +20,13 @@ export class AuthService {
   constructor(private http:HttpClient, private router:Router) {
   }
 
-  login(username:String, password:String){
+  login(username:string, password:string){
     let url = 'http://localhost:8080/login';
     this.http.post<any>(url,{
       username,
       password})
       .subscribe(res=>{
+
       console.log(username + " " + password)
       if(res){
         console.log(res.sessionId);
@@ -34,6 +35,10 @@ export class AuthService {
         sessionStorage.setItem(
           'token',this.sessionId
         );
+        sessionStorage.setItem(
+          'user',username
+        );
+
         this.router.navigate(['']);
       }else{
         alert('Authentification FAILED!')
@@ -41,10 +46,13 @@ export class AuthService {
     });
   }
 
+
+
   logout(){
-    this.sessionId=null;
     sessionStorage.removeItem(
       'token');
+      sessionStorage.removeItem(
+        'user');
     this.router.navigate(['']);
   }
 

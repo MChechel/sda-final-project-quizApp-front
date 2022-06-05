@@ -12,23 +12,26 @@ import { SurveyComponent } from './survey/survey.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { HomeComponent } from './home/home.component';
 import { TakingSurveyFormComponent } from './taking-survey-form/taking-survey-form.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { TakingSurveyComponent } from './taking-survey/taking-survey.component';
+import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'',pathMatch:'full'},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'login',component:UserLoginComponent},
   {path:'newUser',component:UserFormComponent},
-  {path: 'surveys', component: SurveyComponent},
-  {path: 'survey-form', component: SurveyFormComponent},
-  {path: 'survey-form/:id', component: SurveyFormComponent},
-  {path: 'questionsTest', component: QuestionComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'takeSurvey', component: TakingSurveyFormComponent},
 
-  /**
-   *
-   */
 
   {path:'',canActivate:[AuthentificationGuard], children:[
+    {path:'accountInfo/:login',component:UserUpdateComponent},
+    {path: 'surveys', component: SurveyComponent},
+    {path: 'survey-form', component: SurveyFormComponent},
+    {path: 'survey-form/:id', component: SurveyFormComponent},
+    {path: 'questionsworkshop', component: QuestionComponent},
+    {path: 'home', component: HomeComponent},
+    {path: 'chooseSurvey', component: TakingSurveyFormComponent},
+    {path: 'takeSurvey', component: TakingSurveyComponent},
+    {path: 'surveys/statistics/:id', component: SurveyStatisticsComponent},
     {path:'question-form/:id',component:QuestionFormComponent},
     {path:'question-form',component:QuestionFormComponent},
     {path:'questions',component:QuestionComponent},

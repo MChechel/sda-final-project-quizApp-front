@@ -15,8 +15,8 @@ export class SurveyFormComponent implements OnInit {
 
   surveyForm: FormGroup = new FormGroup({
     id: new FormControl('111'),
-    title: new FormControl('delete this text'),
-    description: new FormControl('delete this text')
+    title: new FormControl('Plate TITLE here, instead of that text'),
+    description: new FormControl('Plate description here, instead of that text')
 
   });
 
@@ -35,7 +35,6 @@ export class SurveyFormComponent implements OnInit {
         this.isEditing = true;
         this.surveyService.getSurvey(params['id']).subscribe((s: Survey) => {
             console.log(s);
-
             this.surveyForm.setValue({
               id:s.id,
               title: s.title,

@@ -1,31 +1,19 @@
 <div class="container">
-  <form [formGroup]="surveyForm">
-    <div class="col-1">
-      <h5 class="">ID:</h5>
-    </div>
-    <div class="col-1">
-      <input type="text" id="content" readonly class="form-control-plaintext bg-light " formControlName="id">
-    </div>
+  <form class="form-group" [formGroup]="surveyForm">
+    <h2 class="form-signin-heading">Current survey:</h2>
     <div class="mb-3">
-      <label>
-        Title:
-        <input formControlName="title" class="form-control" placeholder="input title here">
-      </label>
+      <label for="questionContent">Title:</label>
+      <input formControlName="title" class="form-control" placeholder="input title here">
     </div>
-    <div class="mb-3">
-      <label>
-        Description:
-        <textarea formControlName="description" rows="3" class="form-control"
-                  placeholder="input description here"></textarea>
-      </label>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea formControlName="description" rows="5" class="form-control"
+      placeholder="input description here">
+    </textarea>
     </div>
-
-    <button type="button" id="add-survey-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-    <button class="btn btn-primary btn-lg" type="submit" [disabled]="surveyForm.invalid" (click)="onSubmit()"
-            routerLink="/surveys">Add
-      questions!
-    </button>
+    <div class="form-group">
+      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" (click)="onSubmit()" routerLink="/surveys">Submit</button>
+    </div>
   </form>
 </div>
 

@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { MatCommonModule, MatOption, MatOptionModule, MatOptionSelectionChange } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,12 +16,17 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { RequestInterceptor } from './request.interceptor';
 import { SurveyComponent } from './survey/survey.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { TakingSurveyFormComponent } from './taking-survey-form/taking-survey-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TakingSurveyComponent } from './taking-survey/taking-survey.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { SurveyStatisticsComponent } from './survey-statistics/survey-statistics.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +42,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     HomeComponent,
     UserNavComponent,
     TakingSurveyFormComponent,
+    UserUpdateComponent,
+    TakingSurveyComponent,
+    SurveyStatisticsComponent,
 
   ],
   imports: [
@@ -45,7 +55,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     FormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS, useClass:RequestInterceptor, multi:true}],
   bootstrap: [AppComponent]

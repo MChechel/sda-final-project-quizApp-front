@@ -1,0 +1,69 @@
+  <div>
+    <table class="table table-hover table-striped text-center">
+        <thead>
+            <tr>
+                <th >Login</th>
+                <th>Password</th>
+                <th>Full name</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>{{currentUser.email}}</td>
+              <td>{{currentUser.password}}</td>
+              <td>{{currentUser.firstName +" "+ currentUser.lastName }}</td>
+          </tr>
+        </tbody>
+
+      </table>
+      <div class="row">
+
+        <button type="button" class="btn btn-warning"  (click)="activateForm()">SHOW/HIDE update form</button>
+
+        <section class="h-30 gradient-custom" *ngIf="isFormVisible">
+          <div class="container py-5 h-60">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark bg-gradien text-white" style="border-radius: 1.5rem;">
+                  <div class="card-body pl-pr-5 pt-2 text-center">
+                    <div class="pb-5">
+                      <h2 class="fw-bold mb-2 text-uppercase">UPDATE YOUR ACCOUNT</h2>
+                      <p class="text-white-50 mb-5">Please change the fields you want to update!</p>
+                      <form   [formGroup]="form"  class="form-group">
+                     <div class="form-floating mb-3 text-secondary">
+                        <input type="text" id="email" class="form-control form-control-lg" formControlName="email" readonly/>
+                        <label class="form-label" for="email">LOGIN/USERMNAME</label>
+                      </div>
+                      <div class="row">
+                      <div class="form-floating mb-3 col-6 text-secondary">
+                        <input type="password" id="typePassword" class="form-control form-control-lg" formControlName="password"/>
+                        <label class="form-label" for="typePassword">Password</label>
+                      </div>
+                      <div class="form-floating mb-3  col-6 text-secondary">
+                        <input type="password" id="typePasswordConfirm" class="form-control form-control-lg" formControlName="passwordConfirm"/>
+                        <label class="form-label" for="typePasswordConfirm">Confirm password</label>
+                    </div>
+                  </div>
+                  <div *ngIf="form.errors?.['passwordsAreaSame']" class="cross-validation-error-message alert col-10 mx-auto alert-danger">
+                    You MUST confirm your password!
+                </div>
+                <div class="row">
+                    <div class="form-floating mb-3 col-6 text-secondary">
+                      <input type="text" id="firstName" class="form-control form-control-lg" formControlName="firstName" />
+                      <label class="form-label" for="firstName">First name</label>
+                  </div>
+                  <div class="form-floating mb-3 col-6 text-secondary">
+                    <input type="text" id="lastName" class="form-control form-control-lg" formControlName="lastName" />
+                    <label class="form-label" for="lastName">Last name</label>
+                </div>
+                </div>
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="updateUser()"  [disabled]="!form.valid">UPDATE</button>
+                    </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>

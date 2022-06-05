@@ -1,27 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { takingSurveyModelDTO } from '../taking-survey/taking-survey-model';
 import { TakingSurveyService } from '../taking-survey/taking-survey.service';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-survey-statistics',
+  templateUrl: './survey-statistics.component.html',
+  styleUrls: ['./survey-statistics.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class SurveyStatisticsComponent implements OnInit {
+
+  constructor(private takinsSurveyService:TakingSurveyService) { }
   faChartPie=faChartPie;
   resultsList:any[];
 
-
-  constructor(private takinsSurveyService:TakingSurveyService) {
-  }
-
   ngOnInit(): void {
-    this.getPersonalStatistics();
+    this.getSurveyStatistics();
   }
 
-
-  getPersonalStatistics(){
+  getSurveyStatistics(){
     this.takinsSurveyService.getResultsForUser().subscribe((r:any) =>{
       console.log(r)
       this.resultsList = r.resultsList;

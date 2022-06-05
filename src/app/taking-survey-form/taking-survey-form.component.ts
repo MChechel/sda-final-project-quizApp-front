@@ -30,22 +30,15 @@ export class TakingSurveyFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSurveys();
-    this.getQeustions();
 
 
   }
 
-  getQeustions():void{
-    this.questionSurvice.getQuestions().subscribe((q) =>{
-      this.questions = q.questionList;
-      console.log(q);
-    });
-    }
 
     getSurveys(): void {
       this.surveySurvice.getSurveys().subscribe((s) => {
         this.surveys = s.surveyList;
-        console.log(s);
+        console.log(this.surveys);
       });
     }
 

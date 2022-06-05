@@ -16,14 +16,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let s of surveys;let i = index">
-      <td>{{s.id}}</td>
-      <td>{{s.title }}</td>
-      <td>{{s.description }}</td>
-      <td>
+      <td style="width: 5%">{{s.id}}</td>
+      <td style="width: 10%">{{s.title }}</td>
+      <td >{{s.description }}</td>
+      <td style="width: 15%">
         <div class="btn-group d-flex " role="group">
-          <button type="button" class="btn btn-success " [routerLink]="['/survey-form',s.id]">Edit</button>
-          <button type="button" class="btn btn-danger " (click)="deleteSurvey(s.id)">Delete</button>
-          <button type="button" class="btn btn-warning " [queryParams]="{surveyId:s.id}" [routerLink]="['../questionsTest']" >Questions</button>
+          <button type="button" class="btn btn-custom " [routerLink]="['/surveys/statistics',s.id]"><fa-icon [icon]="faChartPie"></fa-icon></button>
+          <button type="button" class="btn btn-success " [routerLink]="['/survey-form',s.id]"><fa-icon [icon]="faPenToSquare"></fa-icon></button>
+          <button type="button" class="btn btn-danger " (click)="deleteSurvey(s.id)"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+          <button type="button" class="btn btn-warning " [queryParams]="{surveyId:s.id}" [routerLink]="['../questionsworkshop']" >
+            Questions<fa-icon [icon]="faArrowRight"></fa-icon></button>
         </div>
       </td>
 

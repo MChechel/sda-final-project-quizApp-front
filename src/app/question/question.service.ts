@@ -63,7 +63,14 @@ export class QuestionService {
   }
 
   deleteQeustions():Observable<any>{
-    return this.http.delete(`${this.baseUrl}`)
+    let qp = new HttpParams();
+    this.route.queryParams.subscribe(queryParams =>{
+      if(queryParams['surveyId']){
+        console.log('the survey id is '+queryParams['surveyId']);
+        qp = qp.append("surveyId",queryParams['surveyId']);
+      }
+    })
+    return this.http.delete(`${this.baseUrl}`,{params:qp})
   }
 
 

@@ -1,14 +1,15 @@
-<!--
 
-  class="navbar navbar-light" style="background-color: #e3f2fd;"
-
-  <nav class="nav nav-pills flex-column flex-sm-row">
-  -->
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a class="flex-sm-row nav-link" routerLink="/surveys" >  <fa-icon [icon]="faUserLarge" class=".width=500px"></fa-icon> ACCOUNT
+  <nav class="navbar navbar-light nav-pills flex-column flex-sm-row" style="background-color: #e3f2fd;">
+    <a class="flex-sm-row nav-link flex-sm-fill text-sm-center" [routerLink]="['/accountInfo',username]" >
+      <fa-icon [icon]="faUserLarge" class=".width=500px"></fa-icon> ACCOUNT
     </a>
-  <a class="flex-sm-row nav-link" routerLink="/takeSurvey" >My SURVEYS</a>
-  <a class="flex-sm-row nav-link" routerLink="/surveys" >Update account info</a>
-  <a class="flex-sm-row nav-link" (click)="logout()" href="#">LOGOUT</a>
+    <fa-icon [icon]="faCertificate" class="faSquare"></fa-icon>
+    <a class="flex-sm-row nav-link flex-sm-fill text-sm-center" routerLink="/chooseSurvey" >
+      SURVEYS</a>
+      <fa-icon [icon]="faCertificate" class="faSquare"></fa-icon>
+      <a class="flex-sm-row nav-link flex-sm-fill text-sm-center" (click)="logout()" href="../home">
+    LOGOUT
+    <fa-icon [icon]="faDoorClosed" class=".width=500px"></fa-icon>
+  </a>
 </nav>
 

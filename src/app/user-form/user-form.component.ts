@@ -31,15 +31,7 @@ export class UserFormComponent implements OnInit {
         this.form.reset
       }):alert("USERNAME IS TAKEN - please enter another one");
     })
-//    if(this.userService.checkIfUserExists(this.form.value.email)!=null){
- //     console.log("USERNAME IS TAKEN - please enter another one");
- //     this.form.reset
-//    }else{
-//      this.userService.postUser(this.form.value).subscribe(()=>{
- //       console.log(this.form.value);
- //       this.form.reset
-//      })
- //   }
+
 
     }
 

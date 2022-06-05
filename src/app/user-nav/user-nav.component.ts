@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../user-login/AuthService ';
+import { ActivatedRoute } from '@angular/router';
 import { faUserLarge } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCertificate } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-user-nav',
   templateUrl: './user-nav.component.html',
@@ -8,9 +12,14 @@ import { faUserLarge } from '@fortawesome/free-solid-svg-icons';
 })
   export class UserNavComponent implements OnInit {
     faUserLarge=faUserLarge;
-    constructor(private authService:AuthService) { }
-
+    faDoorClosed=faArrowUpRightFromSquare;
+    faCertificate=faCertificate;
+    constructor(private authService:AuthService, private route:ActivatedRoute) { }
+    username:string;
     ngOnInit(): void {
+      this.username = sessionStorage.getItem('user');
+
+
 
     }
 

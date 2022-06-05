@@ -2,12 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../service/survey.service';
 import {  debounceTime} from 'rxjs/operators';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-survey',
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.scss']
 })
 export class SurveyComponent implements OnInit {
+
+  faChartPie=faChartPie;
+faTrashCan = faTrashCan;
+faPenToSquare = faPenToSquare;
+faArrowRight = faArrowRight;
 
   public title = "Survey"
 
@@ -22,18 +32,16 @@ export class SurveyComponent implements OnInit {
   }
 
   getSurveys(): void {
-    this.surveyService.getSurveys().subscribe((s) => {
+    this.surveyService.getMySurveys().subscribe((s) => {
       debounceTime(250);
       this.surveys = s.surveyList;
       console.log(s);
     });
   }
 
-  // TODO: this is not working
   deleteSurvey(id: number): void {
     this.surveyService.deleteSurvey(id).subscribe(() => {
       console.log(`Item # ${id} is deleted!`);
-
       this.getSurveys();
     });
   }
