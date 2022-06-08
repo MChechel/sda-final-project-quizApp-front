@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import {Observable} from "rxjs";
-import { Survey } from '../survey/survey.model';
+import { Survey } from '../surveyDirectory/survey/survey.model';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -19,8 +19,11 @@ export class SurveyService {
 
 
   getSurveys(): Observable<any> {
+
     console.log(this.http.get(`${this.baseUrl}/`))
     return this.http.get(`${this.baseUrl}/`)
+
+
   }
 /**/
   getMySurveys(): Observable<any> {

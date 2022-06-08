@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../user-login/AuthService ';
-import { UserLoginComponent } from '../user-login/user-login.component';
+import { AuthService } from '../service/AuthService ';
 import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
