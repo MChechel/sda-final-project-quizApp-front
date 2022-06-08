@@ -1,0 +1,30 @@
+
+<mat-grid-list cols="6" rowHeight="100px" >
+  <mat-grid-tile *ngFor="let q of questions"
+  [colspan]="6"
+  [rowspan]="6"
+  [style.background]="'#F7C564'"
+  class="mt-10"
+  >
+  <form class="row" style="color:#3E8CC6">
+      <div class="mat-card-content py-10">
+        <div class="h3" >POINTS FOR THAT QUESTION - {{q.points}}</div>
+        <div class="h4">{{q.content}}</div>
+      </div>
+        <div id="radioButtonContainer" class="d-flex flex-column bd-highlight mb-3">
+          <div *ngFor="let a of this.q.answers" class="my-3 float-start inline">
+            <input type="radio"
+            [id]="a.id"
+            name="theAnswers"
+            [value]='q.id'
+            class="form-check-input me-3"
+            (change)="radioChangeHandler($event)">
+            <label [for]="a.id" class="color-black float">{{a.content}}</label>
+          </div>
+        </div>
+  </form>
+
+</mat-grid-tile>
+</mat-grid-list>
+
+<button type="button" class="btn btn-primary w-100 p-3" [disabled]="notValid"  (click)="mainSubmit()" routerLink="/" >FINAL SUBMIT</button>
